@@ -1,0 +1,7 @@
+@import '../stylesheets/variables.scss';
+
+
+:host(.logs-view) {
+    flex: 1;
+    padding: #{$m-size};
+}

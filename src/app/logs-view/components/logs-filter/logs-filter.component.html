@@ -1,0 +1,17 @@
+<mat-form-field>
+    <mat-select [formControl]="productSelector" (selectionChange)="filterChange()">
+        <mat-option [value]="'All Products'">All Products</mat-option>
+        @for (product of (data$ | async)?.products; track product) {
+            <mat-option [value]="product">{{product}}</mat-option>
+        }
+    </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+    <mat-select [formControl]="statusSelector" (selectionChange)="filterChange()">
+        <mat-option [value]="'All Statuses'">All Statuses</mat-option>
+        @for (status of (data$ | async)?.statuses; track status) {
+            <mat-option [value]="status">{{status}}</mat-option>
+        }
+    </mat-select>
+</mat-form-field>
