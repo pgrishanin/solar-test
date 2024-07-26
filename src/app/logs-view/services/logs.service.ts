@@ -12,7 +12,9 @@ export class LogsService {
   fetchLogs(): Observable<Array<LogModel>> {
     return this.http
       .get<{ logs:  LogModel[] }>(
-        'http://localhost:3000/fetch'
+        process.env?.['NODE_ENV'] === 'development' 
+          ? 'http://localhost:3000/fetch'
+          : 'https://pgrishanin.github.io/solar-test/static/logs.json'
       )
       .pipe(map((response) => response.logs || []));
   }
@@ -20,7 +22,9 @@ export class LogsService {
   refreshLogs(): Observable<Array<LogModel>> {
     return this.http
       .get<{ new_logs: LogModel[] }>(
-        'http://localhost:3000/refresh'
+        process.env?.['NODE_ENV'] === 'development' 
+        ? 'http://localhost:3000/refresh'
+        : 'https://pgrishanin.github.io/solar-test/static/new_logs.json'
       )
       .pipe(map((response) => response.new_logs || []));
   }
