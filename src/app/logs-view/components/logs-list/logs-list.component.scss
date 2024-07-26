@@ -1,0 +1,19 @@
+@import '../../../stylesheets/variables.scss';
+
+:host {
+    .logs-list {
+        &__empty-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: #{$m-size} 0;
+        }
+
+        &__empty-content-icon {
+            color: #{$gray};
+            font-size: #{$xl-size};
+            height: #{$xl-size};
+            width: #{$xl-size};
+        }
+    }
+}

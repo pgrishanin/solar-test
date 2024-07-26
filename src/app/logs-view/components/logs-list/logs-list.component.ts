@@ -7,12 +7,14 @@ import { selectFilteredLogs } from '../../state/logs.selectors';
 import {MatChipsModule} from '@angular/material/chips';
 import { CommonModule } from '@angular/common';
 import { LogsActions } from '../../state/logs.actions';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'logs-list',
   standalone: true,
   imports: [
     CommonModule,
+    MatIconModule,
     MatTableModule,
     MatSortModule,
     MatChipsModule,
