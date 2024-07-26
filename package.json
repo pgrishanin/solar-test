@@ -5,12 +5,13 @@
   "scripts": {
     "ng": "ng",
     "start": "concurrently \"ng serve\" \"json-server --watch src/mocks/db.json\"",
-    "build": "ng build",
+    "build": "ng build && npm run save-json-api",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "mock:server": "json-server --watch src/mocks/db.json",
     "predeploy": "rm -rf dist && npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "save-json-api": "node ./src/scripts/save-json-api.js"
   },
   "private": true,
   "dependencies": {
@@ -47,6 +48,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "node-fs": "^0.1.7",
     "typescript": "~5.4.2"
   }
 }
