@@ -16,3 +16,7 @@ https://pgrishanin.github.io/solar-test/browser/
 * Telegram: `@pgrishanin`
 * Email: `pgrishanin@gmail.com`
 * Habr career profile: `https://career.habr.com/pgrishanin-186507`
+
+
+### Known Issues
+* There is no `logs-body` test ID, looks like the UI library overrides all tbody attributes, need to check and fix in patch or test cases

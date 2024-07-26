@@ -4,7 +4,7 @@
     fxLayout.lt-md="column"
 >
     <mat-form-field class="logs-filter__field">
-        <mat-select [formControl]="productSelector" (selectionChange)="filterChange()">
+        <mat-select data-test-id="product-filter" [formControl]="productSelector" (selectionChange)="filterChange()">
             <mat-option [value]="'All Products'">All Products</mat-option>
             @for (product of (data$ | async)?.products; track product) {
                 <mat-option [value]="product">{{product}}</mat-option>
@@ -13,7 +13,7 @@
     </mat-form-field>
 
     <mat-form-field class="logs-filter__field">
-        <mat-select [formControl]="statusSelector" (selectionChange)="filterChange()">
+        <mat-select data-test-id="status-filter" [formControl]="statusSelector" (selectionChange)="filterChange()">
             <mat-option [value]="'All Statuses'">All Statuses</mat-option>
             @for (status of (data$ | async)?.statuses; track status) {
                 <mat-option [value]="status">{{status}}</mat-option>

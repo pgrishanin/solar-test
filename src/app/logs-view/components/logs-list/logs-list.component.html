@@ -1,39 +1,46 @@
-<table mat-table [dataSource]="logs$" matSort
+<table data-test-id="attack-logs-table" mat-table [dataSource]="logs$" matSort
        (matSortChange)="sortData($event)"
        class="mat-elevation-z8">
 
   <ng-container matColumnDef="date">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by date">
+    <th data-test-id="log-date-header" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by date">
       Date
     </th>
-    <td mat-cell *matCellDef="let element"> {{element.date | date}} </td>
+    <td data-test-id="log-date" mat-cell *matCellDef="let element"> {{element.date | date}} </td>
   </ng-container>
 
   <ng-container matColumnDef="type">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by type">
+    <th data-test-id="log-type-header" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by type">
       Type
     </th>
-    <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+    <td data-test-id="log-type" mat-cell *matCellDef="let element"> {{element.type}} </td>
   </ng-container>
 
   <ng-container matColumnDef="product">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by product">
+    <th data-test-id="log-product-header" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by product">
       Product
     </th>
-    <td mat-cell *matCellDef="let element"> {{element.product}} </td>
+    <td data-test-id="log-product" mat-cell *matCellDef="let element"> {{element.product}} </td>
   </ng-container>
 
   <ng-container matColumnDef="status">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by status">
+    <th data-test-id="log-status-header" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by status">
       Status
     </th>
-    <td mat-cell *matCellDef="let element"> 
+    <td data-test-id="log-status" mat-cell *matCellDef="let element"> 
       <mat-chip disableRipple>{{element.status}}</mat-chip>
     </td>
   </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <thead>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  </thead>
+
+  <tbody data-test-id="logs-body">
+    <tr data-test-id="log-entry" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </tbody>
+  
+  
 
   <tr class="mat-row" *matNoDataRow>
     <td class="mat-cell" [attr.colspan]="displayedColumns.length">
