@@ -7,6 +7,7 @@ export const LogsActions = createActionGroup({
     'Set Logs': props<{ logs: LogModel[] }>(),
     'Set Filters': props<{ filters?: LogsFilters }>(),
     'Set Sorting': props<{ sorting?: LogsSorting }>(),
+    'Set Is Loading': props<{ isLoading: boolean }>(),
   },
 });
 

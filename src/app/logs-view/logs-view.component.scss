@@ -5,11 +5,5 @@
     flex: 1;
     padding: #{$m-size};
 
-    .logs-view {
-        &__controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-    }
+    
 }

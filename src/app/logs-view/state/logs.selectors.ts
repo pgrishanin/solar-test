@@ -7,7 +7,12 @@ export const selectFilteredLogsState = createFeatureSelector<LogsState>(LOGS_FEA
 
 export const selectAllLogs = createSelector(
   selectFilteredLogsState,
-  (state) => state.logsList
+  (state) => state.logsList,
+);
+
+export const selectIsLoading = createSelector(
+  selectFilteredLogsState,
+  (state) => state.isLoading,
 );
 
 export const selectFilteredLogs = createSelector(

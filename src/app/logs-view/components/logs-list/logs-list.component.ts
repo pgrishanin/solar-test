@@ -3,17 +3,19 @@ import {MatSort, MatSortModule, Sort} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
 import { LogModel, LogsSorting } from '../../state/logs.model';
 import { Store } from '@ngrx/store';
-import { selectFilteredLogs } from '../../state/logs.selectors';
+import { selectFilteredLogs, selectIsLoading } from '../../state/logs.selectors';
 import {MatChipsModule} from '@angular/material/chips';
 import { CommonModule } from '@angular/common';
 import { LogsActions } from '../../state/logs.actions';
 import { MatIconModule } from '@angular/material/icon';
+import { LoadingOverlay } from '../../../common/loading-overlay/loading-overlay.component';
 
 @Component({
   selector: 'logs-list',
   standalone: true,
   imports: [
     CommonModule,
+    LoadingOverlay,
     MatIconModule,
     MatTableModule,
     MatSortModule,
@@ -23,8 +25,9 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './logs-list.component.scss'
 })
 export class LogsList {
-  // @Input() logs: Observable<LogModel[]> = of([]);
-  logs = this.store.select(selectFilteredLogs);
+  logs$ = this.store.select(selectFilteredLogs);
+  isLoading$ = this.store.select(selectIsLoading);
+
   displayedColumns: (keyof LogModel)[] = ['date', 'type', 'product', 'status'];
 
   constructor(private store: Store) {}

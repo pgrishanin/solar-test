@@ -1,6 +1,7 @@
 @import '../../../stylesheets/variables.scss';
 
 :host {
+    position: relative;
     .logs-list {
         &__empty-content {
             display: flex;

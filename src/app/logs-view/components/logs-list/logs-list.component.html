@@ -1,4 +1,4 @@
-<table mat-table [dataSource]="logs" matSort
+<table mat-table [dataSource]="logs$" matSort
        (matSortChange)="sortData($event)"
        class="mat-elevation-z8">
 
@@ -44,3 +44,5 @@
     </td>
   </tr>
 </table>
+
+<loading-overlay *ngIf="isLoading$ | async"/>

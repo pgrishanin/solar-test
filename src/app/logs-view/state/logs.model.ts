@@ -4,6 +4,7 @@ export interface LogsState {
     logsList: LogModel[];
     filters?: LogsFilters;
     sorting?: LogsSorting;
+    isLoading: boolean;
 } 
 
 export interface LogModel {
