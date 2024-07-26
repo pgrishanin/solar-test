@@ -1,0 +1,14 @@
+@import '@angular/flex-layout/core/sass/layout-bp';
+
+:host {
+    .logs-filter {
+        &__field {
+            
+            &:not(:first-child) {
+                @include layout-bp(gt-sm) {
+                    margin-left: 16px;
+                }
+            }
+        }
+    }
+}

@@ -5,12 +5,14 @@ import { LogsFilter } from './components/logs-filter/logs-filter.component';
 import { Store } from '@ngrx/store';
 import { LogsApiActions } from './state/logs.actions';
 import { CommonModule } from '@angular/common';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @Component({
   selector: 'logs-view',
   standalone: true,
   imports: [
     CommonModule,
+    FlexLayoutModule,
     LogsRefresh,
     LogsList,
     LogsFilter,

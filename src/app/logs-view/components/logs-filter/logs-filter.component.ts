@@ -10,12 +10,14 @@ import { map } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { LogsActions } from '../../state/logs.actions';
 import { LogsFilters } from '../../state/logs.model';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @Component({
   selector: 'logs-filter',
   standalone: true,
   imports: [
     CommonModule,
+    FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
