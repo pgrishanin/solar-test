@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { LogModel } from '../state/logs.model';
 
+// TODO: Use env variables for the host URL
 @Injectable({ providedIn: 'root' })
 export class LogsService {
   constructor(private http: HttpClient) {}

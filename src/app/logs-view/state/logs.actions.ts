@@ -1,20 +1,21 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
 import { LogModel, LogsFilters, LogsSorting } from './logs.model';
+import { LogsActionsEnum, LogsApiActionsEnum } from './constants';
 
 export const LogsActions = createActionGroup({
   source: 'Logs',
   events: {
-    'Set Logs': props<{ logs: LogModel[] }>(),
-    'Set Filters': props<{ filters?: LogsFilters }>(),
-    'Set Sorting': props<{ sorting?: LogsSorting }>(),
-    'Set Is Loading': props<{ isLoading: boolean }>(),
+    [LogsActionsEnum.SET_LOGS]: props<{ logs: LogModel[] }>(),
+    [LogsActionsEnum.SET_FILTERS]: props<{ filters?: LogsFilters }>(),
+    [LogsActionsEnum.SET_SORTING]: props<{ sorting?: LogsSorting }>(),
+    [LogsActionsEnum.SET_IS_LOADING]: props<{ isLoading: boolean }>(),
   },
 });
 
 export const LogsApiActions = createActionGroup({
   source: 'Logs API',
   events: {
-    'Fetch Logs List': emptyProps(),
-    'Refresh Logs List': emptyProps(),
+    [LogsApiActionsEnum.FETCH_LOGS_LIST]: emptyProps(),
+    [LogsApiActionsEnum.REFRESH_LOGS_LIST]: emptyProps(),
   },
 });

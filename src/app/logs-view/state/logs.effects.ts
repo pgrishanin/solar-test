@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { EMPTY } from 'rxjs';
+import { EMPTY, of } from 'rxjs';
 import { map, exhaustMap, catchError } from 'rxjs/operators';
 import { LogsService } from '../services/logs.service';
 import { LogsActions, LogsApiActions } from './logs.actions';
@@ -14,7 +14,7 @@ export class LogsEffects {
       .pipe(
         map(logs => LogsActions.setLogs({ logs })),
         // TODO: add error handling
-        catchError(() => EMPTY)
+        catchError(() => of(LogsActions.setIsLoading({isLoading: false})))
       ))
     )
   );
@@ -25,7 +25,7 @@ export class LogsEffects {
       .pipe(
         map(logs => LogsActions.setLogs({ logs })),
         // TODO: add error handling
-        catchError(() => EMPTY)
+        catchError(() => of(LogsActions.setIsLoading({isLoading: false})))
       ))
     )
   );
